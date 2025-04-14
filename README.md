@@ -27,4 +27,28 @@ This project detects gas levels using a gas sensor (like MQ-2 or MQ-135), displa
 
 ### Buzzer:
 - **+** → D13  
-- **-** → GND  
+- **-** → GND
+  
+## ✅ Testing Instructions
+
+- Upload the code to your Arduino Uno using the Arduino IDE.  
+- Open the Serial Monitor (9600 baud) to observe raw sensor values.  
+- Bring a lighter (unlit) or a small gas source near the sensor.  
+- When the gas level crosses a threshold, the buzzer will beep, and the LCD will display a **DANGER** alert.  
+
+## 🛠️ Troubleshooting
+
+- **LCD shows nothing**: Try changing I2C address from `0x27` to `0x3F`.  
+- **Gas value is stuck**: Adjust the formula or calibrate your sensor.  
+- **No buzzer sound**: Try a basic test in `setup()`:
+- tone(buzzer, 1000);
+delay(1000);
+noTone(buzzer);
+
+
+## 🚀 Possible Upgrades
+
+- Add LED indicators for better visibility  
+- Send alerts via Wi-Fi (ESP8266/ESP32)  
+- Log readings to an SD card or cloud  
+- Integrate with home automation systems  
